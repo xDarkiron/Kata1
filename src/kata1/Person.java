@@ -1,32 +1,31 @@
 package kata1;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Person {
     private final String name;
     private final Calendar birthdate;
-    private final long MILLISECODS_PER_YEAR = (long) (1000*60*60*24*365.25);
+    
     public Person (String name, Calendar birthdate){
         this.name = name;
         this.birthdate = birthdate;
     }
-    
+
     public String getName(){
     return name;    
     }
 
-        public Calendar getBirthday() {
-            return birthdate;
+            
+    public int getAge(){
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fn = LocalDate.parse("02/07/1994",fmt );
+        LocalDate fa = LocalDate.now();
+        int periodo = Period.between(fn, fa).getYears();
+        return periodo;
         
-        }
-        
-        public int getAge(){
-            Calendar today = GregorianCalendar.getInstance();
-            return (int) (milliSecondsToYear(today.getTimeInMillis()-birthdate.getTimeInMillis()));
-        }
-        
-        private long milliSecondsToYear (long milles){
-            return milles/MILLISECODS_PER_YEAR;
-        }
+        }        
 }
