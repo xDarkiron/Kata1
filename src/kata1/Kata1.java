@@ -18,7 +18,7 @@ public class Kata1 {
             Scanner scan = new Scanner (System.in);
             Person person = new Person ("Airam", date);
             System.out.println(person.getName() + " tiene " 
-                    + person.getAge() + " años ");
+                    + person.getAge() + " años ");  
         
         
         }

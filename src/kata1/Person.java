@@ -26,6 +26,6 @@ public class Person {
         LocalDate fa = LocalDate.now();
         int periodo = Period.between(fn, fa).getYears();
         return periodo;
-        
+         
         }        
 }
